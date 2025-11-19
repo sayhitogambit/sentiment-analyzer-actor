@@ -1,0 +1,58 @@
+{
+  "actorSpecification": 1,
+  "name": "sentiment-analyzer",
+  "title": "AI Sentiment Analyzer - OpenRouter",
+  "description": "Analyze sentiment of text (reviews, social media, feedback) using OpenRouter AI. Get sentiment scores, emotions, and confidence levels. Perfect for brand monitoring, customer feedback analysis, and social listening.",
+  "version": "1.0.0",
+  "meta": {
+    "templateId": "openrouter-sentiment-analyzer"
+  },
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "title": "Sentiment Analysis Results",
+      "views": {
+        "overview": {
+          "title": "Overview",
+          "transformation": {
+            "fields": [
+              "text",
+              "sentiment",
+              "score",
+              "confidence",
+              "emotions"
+            ]
+          },
+          "display": {
+            "component": "table",
+            "properties": {
+              "text": {
+                "label": "Text",
+                "format": "text"
+              },
+              "sentiment": {
+                "label": "Sentiment",
+                "format": "text"
+              },
+              "score": {
+                "label": "Score",
+                "format": "number"
+              },
+              "confidence": {
+                "label": "Confidence",
+                "format": "number"
+              },
+              "emotions": {
+                "label": "Emotions",
+                "format": "object"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "dockerfile": "./Dockerfile",
+  "input": "./.actor/input_schema.json",
+  "readme": "./README.md"
+}

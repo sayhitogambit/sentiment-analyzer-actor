@@ -1,0 +1,53 @@
+{
+  "title": "Sentiment Analyzer Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "texts": {
+      "title": "Texts to Analyze",
+      "type": "array",
+      "description": "Array of text strings to analyze for sentiment",
+      "editor": "stringList",
+      "example": ["This product is amazing!", "Terrible customer service", "It's okay, nothing special"],
+      "minItems": 1
+    },
+    "includeEmotions": {
+      "title": "Include Emotion Analysis",
+      "type": "boolean",
+      "description": "Detect emotions (joy, anger, sadness, fear) with intensity scores",
+      "default": true
+    },
+    "language": {
+      "title": "Text Language",
+      "type": "string",
+      "description": "Language of the text (auto-detect if not specified)",
+      "enum": ["auto", "en", "es", "fr", "de", "it", "pt", "zh", "ja"],
+      "default": "auto",
+      "enumTitles": ["Auto-detect", "English", "Spanish", "French", "German", "Italian", "Portuguese", "Chinese", "Japanese"]
+    },
+    "model": {
+      "title": "AI Model",
+      "type": "string",
+      "description": "Which OpenRouter model to use",
+      "enum": [
+        "google/gemini-2.0-flash-exp:free",
+        "anthropic/claude-3-haiku",
+        "openai/gpt-4o-mini"
+      ],
+      "default": "google/gemini-2.0-flash-exp:free",
+      "enumTitles": [
+        "Gemini 2.0 Flash (Free/Fast)",
+        "Claude 3 Haiku (Fast)",
+        "GPT-4o Mini (Accurate)"
+      ]
+    },
+    "openrouterApiKey": {
+      "title": "OpenRouter API Key",
+      "type": "string",
+      "description": "Your OpenRouter API key (get it from https://openrouter.ai/keys)",
+      "editor": "textfield",
+      "isSecret": true
+    }
+  },
+  "required": ["texts", "openrouterApiKey"]
+}
