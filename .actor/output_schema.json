@@ -1,0 +1,138 @@
+{
+  "title": "Sentiment Analyzer Output",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "results": {
+      "title": "Analysis Results",
+      "type": "array",
+      "description": "Array of sentiment analysis results for each text",
+      "editor": "json",
+      "items": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "The original text analyzed"
+          },
+          "sentiment": {
+            "type": "string",
+            "description": "Overall sentiment classification",
+            "enum": ["positive", "negative", "neutral"]
+          },
+          "score": {
+            "type": "number",
+            "description": "Sentiment score from -1.0 (very negative) to 1.0 (very positive)"
+          },
+          "confidence": {
+            "type": "number",
+            "description": "Confidence level of the analysis (0 to 1)"
+          },
+          "emotions": {
+            "type": "object",
+            "description": "Emotion breakdown scores",
+            "properties": {
+              "joy": {
+                "type": "number"
+              },
+              "anger": {
+                "type": "number"
+              },
+              "sadness": {
+                "type": "number"
+              },
+              "fear": {
+                "type": "number"
+              }
+            }
+          },
+          "reasoning": {
+            "type": "string",
+            "description": "Brief explanation of the sentiment analysis"
+          }
+        }
+      }
+    },
+    "summary": {
+      "title": "Summary Statistics",
+      "type": "object",
+      "description": "Overall summary of sentiment analysis results",
+      "editor": "json",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "description": "Total number of texts analyzed"
+        },
+        "positive": {
+          "type": "integer",
+          "description": "Number of positive texts"
+        },
+        "negative": {
+          "type": "integer",
+          "description": "Number of negative texts"
+        },
+        "neutral": {
+          "type": "integer",
+          "description": "Number of neutral texts"
+        },
+        "positivePercentage": {
+          "type": "string",
+          "description": "Percentage of positive texts"
+        },
+        "negativePercentage": {
+          "type": "string",
+          "description": "Percentage of negative texts"
+        },
+        "neutralPercentage": {
+          "type": "string",
+          "description": "Percentage of neutral texts"
+        },
+        "averageScore": {
+          "type": "string",
+          "description": "Average sentiment score across all texts"
+        }
+      }
+    },
+    "statistics": {
+      "title": "Processing Statistics",
+      "type": "object",
+      "description": "Statistics about the analysis process",
+      "editor": "json",
+      "properties": {
+        "totalTexts": {
+          "type": "integer",
+          "description": "Total number of texts processed"
+        },
+        "model": {
+          "type": "string",
+          "description": "AI model used for analysis"
+        },
+        "includeEmotions": {
+          "type": "boolean",
+          "description": "Whether emotion analysis was included"
+        },
+        "cost": {
+          "type": "number",
+          "description": "API cost in USD"
+        },
+        "chargePrice": {
+          "type": "number",
+          "description": "Price charged to user in USD"
+        },
+        "profit": {
+          "type": "number",
+          "description": "Profit from this analysis in USD"
+        },
+        "profitMargin": {
+          "type": "number",
+          "description": "Profit margin percentage"
+        },
+        "processedAt": {
+          "type": "string",
+          "description": "ISO timestamp of when analysis was completed",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}
