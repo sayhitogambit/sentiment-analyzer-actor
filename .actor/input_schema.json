@@ -15,12 +15,14 @@
       "title": "Include Emotion Analysis",
       "type": "boolean",
       "description": "Detect emotions (joy, anger, sadness, fear) with intensity scores",
+      "editor": "checkbox",
       "default": true
     },
     "language": {
       "title": "Text Language",
       "type": "string",
       "description": "Language of the text (auto-detect if not specified)",
+      "editor": "select",
       "enum": ["auto", "en", "es", "fr", "de", "it", "pt", "zh", "ja"],
       "default": "auto",
       "enumTitles": ["Auto-detect", "English", "Spanish", "French", "German", "Italian", "Portuguese", "Chinese", "Japanese"]
@@ -29,6 +31,7 @@
       "title": "AI Model",
       "type": "string",
       "description": "Which OpenRouter model to use",
+      "editor": "select",
       "enum": [
         "google/gemini-2.0-flash-exp:free",
         "anthropic/claude-3-haiku",
